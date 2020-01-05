@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain
 {
-    class Currency
+    public class Currency
     {
         public int CurrencyId { get; set; }
         public string Code { get; set; }

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingSystem", "BankingSystem\BankingSystem.csproj", "{36AFED4F-1107-40F0-9310-AE943776183C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A9F09E0D-C505-49E0-8EAC-BAC43F2E646E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A9F09E0D-C505-49E0-8EAC-BAC43F2E646E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSDatabaseContext", "BSDatabaseContext\BSDatabaseContext.csproj", "{D0906132-9067-43C2-803E-E587BC34C284}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A9F09E0D-C505-49E0-8EAC-BAC43F2E646E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9F09E0D-C505-49E0-8EAC-BAC43F2E646E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9F09E0D-C505-49E0-8EAC-BAC43F2E646E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0906132-9067-43C2-803E-E587BC34C284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0906132-9067-43C2-803E-E587BC34C284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0906132-9067-43C2-803E-E587BC34C284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0906132-9067-43C2-803E-E587BC34C284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain
 {
-    class Account
+    public class Account
     {
         public int AccountId { get; set; }
         public virtual User AccountUser { get; set; }
