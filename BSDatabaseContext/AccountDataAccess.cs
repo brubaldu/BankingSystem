@@ -52,11 +52,26 @@ namespace BSDatabaseContext
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    Account account = context.Accounts.FirstOrDefault(v => v.AccountId == id);
+                    Account account = context.Accounts.Include("AccountUser").Include("Currency").FirstOrDefault(v => v.AccountId == id);
                     return account;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
+            {
+                throw new Exception();
+            }
+        }
+
+        public bool Exists(int id)
+        {
+            try
+            {
+                using (BankingSystemDBContext context = new BankingSystemDBContext())
+                {
+                    return context.Accounts.Any(v => v.AccountId == id);
+                }
+            }
+            catch (Exception e)
             {
                 throw new Exception();
             }

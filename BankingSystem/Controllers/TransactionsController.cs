@@ -18,12 +18,12 @@ namespace BankingSystem.Controllers
     public class TransactionsController : ControllerBase
     {
         [HttpGet]
-        public List<TransactionVM> Get(DateTime dateFrom, DateTime dateTo,int accountFrom)
+        public List<TransactionVM> Get(DateTime dateFrom, DateTime dateTo, int accountFrom)
         {
             if (dateTo == DateTime.MinValue)
                 dateTo = DateTime.MaxValue;
             TransactionDataAccess tda = new TransactionDataAccess();
-            var transactions = tda.GetAllList().Where(t=>t.DateAndTime> dateFrom && t.DateAndTime< dateTo && (t.AccountFrom.AccountId==accountFrom||accountFrom==0)).Select(t => new TransactionVM()
+            var transactions = tda.GetAllList().Where(t => t.DateAndTime > dateFrom && t.DateAndTime < dateTo && (t.AccountFrom.AccountId == accountFrom || accountFrom == 0)).Select(t => new TransactionVM()
             {
                 TransactionId = t.TransactionId,
                 AccountFrom = t.AccountFrom.AccountId,
@@ -31,9 +31,9 @@ namespace BankingSystem.Controllers
                 DateAndTime = t.DateAndTime,
                 Description = t.Description,
                 Amount = t.Amount
-            }).ToList();  
+            }).ToList();
             return transactions;
-            }
         }
     }
+}
 

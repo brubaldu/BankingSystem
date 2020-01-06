@@ -76,9 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrencyDataAccess.cs" />
-    <Compile Include="Migrations\202001060347143_InitialCreate.cs" />
-    <Compile Include="Migrations\202001060347143_InitialCreate.designer.cs">
-      <DependentUpon>202001060347143_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202001061412354_InitialCreate.cs" />
+    <Compile Include="Migrations\202001061412354_InitialCreate.designer.cs">
+      <DependentUpon>202001061412354_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TransactionDataAccess.cs" />
@@ -99,8 +99,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001060347143_InitialCreate.resx">
-      <DependentUpon>202001060347143_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001061412354_InitialCreate.resx">
+      <DependentUpon>202001061412354_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

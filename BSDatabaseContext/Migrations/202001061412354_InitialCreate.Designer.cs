@@ -13,7 +13,7 @@ namespace BSDatabaseContext.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202001060347143_InitialCreate"; }
+            get { return "202001061412354_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

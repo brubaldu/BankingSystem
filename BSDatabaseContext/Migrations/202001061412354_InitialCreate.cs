@@ -48,28 +48,28 @@
                 c => new
                     {
                         TransactionId = c.Int(nullable: false, identity: true),
+                        AccountFromId = c.Int(nullable: false),
+                        AccountToId = c.Int(nullable: false),
                         DateAndTime = c.DateTime(nullable: false, precision: 0),
                         Description = c.String(unicode: false),
                         Amount = c.Double(nullable: false),
-                        AccountFrom_AccountId = c.Int(),
-                        AccountTo_AccountId = c.Int(),
                     })
                 .PrimaryKey(t => t.TransactionId)
-                .ForeignKey("dbo.Accounts", t => t.AccountFrom_AccountId)
-                .ForeignKey("dbo.Accounts", t => t.AccountTo_AccountId)
-                .Index(t => t.AccountFrom_AccountId)
-                .Index(t => t.AccountTo_AccountId);
+                .ForeignKey("dbo.Accounts", t => t.AccountFromId, cascadeDelete: true)
+                .ForeignKey("dbo.Accounts", t => t.AccountToId, cascadeDelete: true)
+                .Index(t => t.AccountFromId)
+                .Index(t => t.AccountToId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Transactions", "AccountTo_AccountId", "dbo.Accounts");
-            DropForeignKey("dbo.Transactions", "AccountFrom_AccountId", "dbo.Accounts");
+            DropForeignKey("dbo.Transactions", "AccountToId", "dbo.Accounts");
+            DropForeignKey("dbo.Transactions", "AccountFromId", "dbo.Accounts");
             DropForeignKey("dbo.Accounts", "Currency_CurrencyId", "dbo.Currencies");
             DropForeignKey("dbo.Accounts", "AccountUser_UserId", "dbo.Users");
-            DropIndex("dbo.Transactions", new[] { "AccountTo_AccountId" });
-            DropIndex("dbo.Transactions", new[] { "AccountFrom_AccountId" });
+            DropIndex("dbo.Transactions", new[] { "AccountToId" });
+            DropIndex("dbo.Transactions", new[] { "AccountFromId" });
             DropIndex("dbo.Accounts", new[] { "Currency_CurrencyId" });
             DropIndex("dbo.Accounts", new[] { "AccountUser_UserId" });
             DropTable("dbo.Transactions");
