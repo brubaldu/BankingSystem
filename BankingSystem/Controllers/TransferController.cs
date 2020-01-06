@@ -46,13 +46,13 @@ namespace BankingSystem.Controllers
                 {*/
                 if (CheckExistingAccounts(transaction))
                 {
-                    LoadAccounts(transaction);
+                    //LoadAccounts(transaction);
                     TransactionDataAccess tda = new TransactionDataAccess();
                     tda.Add(transaction);
                     return CreatedAtRoute("Get", new { id = transaction.TransactionId },transaction);
                     
                 }
-                return BadRequest();
+                return BadRequest("At least one of the accounts doesn't exist.");
             }
             catch (Exception ex)
             {

@@ -18,7 +18,7 @@ namespace BSDatabaseContext
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
-                {
+                {                    
                     context.Accounts.Add(entity);
                     context.SaveChanges();
                 }
@@ -52,7 +52,10 @@ namespace BSDatabaseContext
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    Account account = context.Accounts.Include("AccountUser").Include("Currency").FirstOrDefault(v => v.AccountId == id);
+                    
+                    Account account = context.Accounts.FirstOrDefault(v => v.AccountId == id);
+                    context.Entry(account).Reference(e => e.AccountUser).Load();
+                    context.Entry(account).Reference(e => e.Currency).Load();
                     return account;
                 }
             }

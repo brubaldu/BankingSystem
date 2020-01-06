@@ -53,6 +53,8 @@ namespace BSDatabaseContext
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
                     Transaction transaction = context.Transactions.FirstOrDefault(v => v.TransactionId == id);
+                    context.Entry(transaction).Reference(t => t.AccountFrom).Load();
+                    context.Entry(transaction).Reference(t => t.AccountTo).Load();
                     return transaction;
                 }
             }
