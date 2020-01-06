@@ -9,10 +9,11 @@ namespace TransferService
         public static void TransferMoney(Transaction transaction) 
         {
             double debitAmount = -transaction.Amount;
-            if (AccountsBelongToSameUser(transaction.AccountFromId,transaction.AccountToId))
-                transaction.Amount= transaction.Amount + transaction.Amount*0.01;
+            if (!AccountsBelongToSameUser(transaction.AccountFromId,transaction.AccountToId))
+                debitAmount += debitAmount * 0.01;
             ModifyBalance(transaction.AccountFromId, debitAmount);
             ModifyBalance(transaction.AccountToId, transaction.Amount);
+
         }
 
         private static bool AccountsBelongToSameUser(int accountFromId, int accountToId)
