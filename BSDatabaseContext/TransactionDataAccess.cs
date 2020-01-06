@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace BSDatabaseContext
 {
-    public class UserDataAccess : IDataAccess<User>
+    public class TransactionDataAccess : IDataAccess<Transaction>
     {
-        public UserDataAccess()
+        public TransactionDataAccess()
         {
         }
-        public void Add(User entity)
+        public void Add(Transaction entity)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    context.Users.Add(entity);
+                    context.Transactions.Add(entity);
                     context.SaveChanges();
                 }
             }
@@ -30,13 +30,13 @@ namespace BSDatabaseContext
 
         }
 
-        public void Delete(User entity)
+        public void Delete(Transaction entity)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    context.Users.Remove(entity);
+                    context.Transactions.Remove(entity);
                     context.SaveChanges();
                 }
             }
@@ -46,14 +46,14 @@ namespace BSDatabaseContext
             }
         }
 
-        public User Get(int id)
+        public Transaction Get(int id)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    User user = context.Users.FirstOrDefault(v => v.UserId == id);
-                    return user;
+                    Transaction transaction = context.Transactions.FirstOrDefault(v => v.TransactionId == id);
+                    return transaction;
                 }
             }
             catch (Exception)
@@ -63,13 +63,13 @@ namespace BSDatabaseContext
         }
 
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Transaction> GetAll()
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    return context.Users;
+                    return context.Transactions;
                 }
             }
             catch (Exception e)
@@ -78,7 +78,7 @@ namespace BSDatabaseContext
             }
         }
 
-        public void Modify(User entity)
+        public void Modify(Transaction entity)
         {
             using (BankingSystemDBContext context = new BankingSystemDBContext())
             {

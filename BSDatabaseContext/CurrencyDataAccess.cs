@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace BSDatabaseContext
 {
-    public class UserDataAccess : IDataAccess<User>
+    public class CurrencyDataAccess : IDataAccess<Currency>
     {
-        public UserDataAccess()
+        public CurrencyDataAccess()
         {
         }
-        public void Add(User entity)
+        public void Add(Currency entity)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    context.Users.Add(entity);
+                    context.Currencies.Add(entity);
                     context.SaveChanges();
                 }
             }
@@ -30,13 +30,13 @@ namespace BSDatabaseContext
 
         }
 
-        public void Delete(User entity)
+        public void Delete(Currency entity)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    context.Users.Remove(entity);
+                    context.Currencies.Remove(entity);
                     context.SaveChanges();
                 }
             }
@@ -46,14 +46,29 @@ namespace BSDatabaseContext
             }
         }
 
-        public User Get(int id)
+        public Currency Get(int id)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    User user = context.Users.FirstOrDefault(v => v.UserId == id);
-                    return user;
+                    Currency currency = context.Currencies.FirstOrDefault(v => v.CurrencyId == id);
+                    return currency;
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+        public Currency GetByCode(string code)
+        {
+            try
+            {
+                using (BankingSystemDBContext context = new BankingSystemDBContext())
+                {
+                    Currency currency = context.Currencies.FirstOrDefault(v => v.Code == code);
+                    return currency;
                 }
             }
             catch (Exception)
@@ -62,14 +77,13 @@ namespace BSDatabaseContext
             }
         }
 
-
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Currency> GetAll()
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    return context.Users;
+                    return context.Currencies;
                 }
             }
             catch (Exception e)
@@ -78,7 +92,7 @@ namespace BSDatabaseContext
             }
         }
 
-        public void Modify(User entity)
+        public void Modify(Currency entity)
         {
             using (BankingSystemDBContext context = new BankingSystemDBContext())
             {

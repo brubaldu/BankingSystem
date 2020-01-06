@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace BSDatabaseContext
 {
-    public class UserDataAccess : IDataAccess<User>
+    public class AccountDataAccess : IDataAccess<Account>
     {
-        public UserDataAccess()
+        public AccountDataAccess()
         {
         }
-        public void Add(User entity)
+        public void Add(Account entity)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    context.Users.Add(entity);
+                    context.Accounts.Add(entity);
                     context.SaveChanges();
                 }
             }
@@ -30,13 +30,13 @@ namespace BSDatabaseContext
 
         }
 
-        public void Delete(User entity)
+        public void Delete(Account entity)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    context.Users.Remove(entity);
+                    context.Accounts.Remove(entity);
                     context.SaveChanges();
                 }
             }
@@ -46,14 +46,14 @@ namespace BSDatabaseContext
             }
         }
 
-        public User Get(int id)
+        public Account Get(int id)
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    User user = context.Users.FirstOrDefault(v => v.UserId == id);
-                    return user;
+                    Account account = context.Accounts.FirstOrDefault(v => v.AccountId == id);
+                    return account;
                 }
             }
             catch (Exception)
@@ -63,13 +63,13 @@ namespace BSDatabaseContext
         }
 
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Account> GetAll()
         {
             try
             {
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    return context.Users;
+                    return context.Accounts;
                 }
             }
             catch (Exception e)
@@ -78,7 +78,7 @@ namespace BSDatabaseContext
             }
         }
 
-        public void Modify(User entity)
+        public void Modify(Account entity)
         {
             using (BankingSystemDBContext context = new BankingSystemDBContext())
             {
