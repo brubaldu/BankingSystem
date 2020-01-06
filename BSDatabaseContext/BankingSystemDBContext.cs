@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Domain;
-using MySql.Data.Entity;
+using MySql.Data.EntityFramework;
 
 namespace BSDatabaseContext
 {
