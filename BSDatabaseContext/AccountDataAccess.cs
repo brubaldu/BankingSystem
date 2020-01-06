@@ -105,5 +105,14 @@ namespace BSDatabaseContext
             }
 
         }
+
+        public bool SameOwner(int accountFromId, int accountToId)
+        {
+            using (BankingSystemDBContext context = new BankingSystemDBContext())
+            {
+                return Get(accountFromId).AccountUser.UserId == Get(accountToId).AccountUser.UserId;
+            }
+
+        }
     }
 }

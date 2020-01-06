@@ -10,6 +10,7 @@ using BSDatabaseContext;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TransferService;
 
 namespace BankingSystem.Controllers
 {
@@ -38,15 +39,10 @@ namespace BankingSystem.Controllers
         {
             try
             {
-                /*if (!UrlCheckService.CorrectURL(business.BusinessURL))
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "The BusinessURL is invalid");
-                }
-                else
-                {*/
                 if (CheckExistingAccounts(transaction))
                 {
                     //LoadAccounts(transaction);
+                    TransferService.TransferService.TransferMoney(transaction);
                     TransactionDataAccess tda = new TransactionDataAccess();
                     tda.Add(transaction);
                     return CreatedAtRoute("Get", new { id = transaction.TransactionId },transaction);

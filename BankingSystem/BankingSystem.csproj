@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BSDatabaseContext\BSDatabaseContext.csproj" />
+    <ProjectReference Include="..\TransferService\TransferService.csproj" />
   </ItemGroup>
 
 </Project>

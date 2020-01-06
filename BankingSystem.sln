@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSDatabaseContext", "BSDatabaseContext\BSDatabaseContext.csproj", "{D0906132-9067-43C2-803E-E587BC34C284}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferService", "TransferService\TransferService.csproj", "{F16B6315-E7B4-4CDC-A6D4-0721DDAD506B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D0906132-9067-43C2-803E-E587BC34C284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0906132-9067-43C2-803E-E587BC34C284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0906132-9067-43C2-803E-E587BC34C284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16B6315-E7B4-4CDC-A6D4-0721DDAD506B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16B6315-E7B4-4CDC-A6D4-0721DDAD506B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16B6315-E7B4-4CDC-A6D4-0721DDAD506B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16B6315-E7B4-4CDC-A6D4-0721DDAD506B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
