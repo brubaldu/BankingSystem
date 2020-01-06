@@ -76,6 +76,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrencyDataAccess.cs" />
+    <Compile Include="Migrations\202001060347143_InitialCreate.cs" />
+    <Compile Include="Migrations\202001060347143_InitialCreate.designer.cs">
+      <DependentUpon>202001060347143_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TransactionDataAccess.cs" />
     <Compile Include="BankingSystemDBContext.cs" />
     <Compile Include="IDataAccess.cs" />
@@ -92,6 +97,11 @@
       <Project>{a9f09e0d-c505-49e0-8eac-bac43f2e646e}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202001060347143_InitialCreate.resx">
+      <DependentUpon>202001060347143_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

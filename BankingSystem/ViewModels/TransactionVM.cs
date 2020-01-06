@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Domain
+namespace BankingSystem.ViewModels
 {
-    public class Transaction
+    public partial class TransactionVM
     {
         public int TransactionId { get; set; }
-        public virtual Account AccountFrom { get; set; }
-        public virtual Account AccountTo { get; set; }
+        public int AccountFrom { get; set; }
+        public int AccountTo { get; set; }
         public DateTime DateAndTime { get; set; }
         public string Description { get; set; }
         public double Amount { get; set; }
-
     }
 }

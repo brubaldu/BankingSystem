@@ -67,10 +67,30 @@ namespace BSDatabaseContext
         {
             try
             {
+                IEnumerable<Transaction> transactions;
                 using (BankingSystemDBContext context = new BankingSystemDBContext())
                 {
-                    return context.Transactions;
+                     transactions =context.Transactions.Include("AccountFrom").Include("AccountTo");
+                    return transactions;
                 }
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception();
+            }
+        }
+        public List<Transaction> GetAllList()
+        {
+            try
+            {
+                IEnumerable<Transaction> transactions;
+                using (BankingSystemDBContext context = new BankingSystemDBContext())
+                {
+                    transactions = context.Transactions.Include("AccountFrom").Include("AccountTo");
+                    return transactions.ToList();
+                }
+                
             }
             catch (Exception e)
             {
