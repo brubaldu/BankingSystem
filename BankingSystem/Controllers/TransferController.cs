@@ -35,14 +35,13 @@ namespace BankingSystem.Controllers
             return Ok(transactionVM);
         }
         [HttpPost]
-        public ActionResult<Transaction> Post([FromBody] Transaction transaction)
+        public async Task<ActionResult<Transaction>> PostAsync([FromBody] Transaction transaction)
         {
             try
             {
                 if (CheckExistingAccounts(transaction))
-                {
-                    //LoadAccounts(transaction);
-                    TransferService.TransferService.TransferMoney(transaction);
+                {                    
+                    await TransferService.TransferService.TransferMoneyAsync(transaction);
                     TransactionDataAccess tda = new TransactionDataAccess();
                     tda.Add(transaction);
                     return CreatedAtRoute("Get", new { id = transaction.TransactionId },transaction);
@@ -56,12 +55,6 @@ namespace BankingSystem.Controllers
             }
         }
 
-        private void LoadAccounts(Transaction transaction)
-        {
-            AccountDataAccess ada = new AccountDataAccess();
-            transaction.AccountFrom = ada.Get(transaction.AccountFromId);
-            transaction.AccountTo = ada.Get(transaction.AccountToId);
-        }
 
         private bool CheckExistingAccounts(Transaction transaction)
         {
