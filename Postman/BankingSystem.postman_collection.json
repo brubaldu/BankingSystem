@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "749b50b4-5fe1-41e8-b769-806bdddea643",
+		"name": "BankingSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44399/transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/transactions?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2012-12-31",
+							"disabled": true
+						},
+						{
+							"key": "dateTo",
+							"value": "2020-12-31",
+							"disabled": true
+						},
+						{
+							"key": "accountFrom",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44399/transfer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"AccountFromId\":1,\n\t\"AccountToId\":2,\n\t\"Amount\":100,\n\t\"DateAndTime\":\"2020-02-06T00:50:15\",\n\t\"Description\":\"Pago de préstamo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44399/transfer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"transfer"
+					],
+					"query": [
+						{
+							"key": "accountFrom",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "accountTo",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44399/transfer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"AccountFromId\":1,\n\t\"AccountToId\":4,\n\t\"Amount\":100,\n\t\"DateAndTime\":\"2020-02-06T00:50:15\",\n\t\"Description\":\"Cambio a dólares\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44399/transfer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"transfer"
+					],
+					"query": [
+						{
+							"key": "accountFrom",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "accountTo",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
